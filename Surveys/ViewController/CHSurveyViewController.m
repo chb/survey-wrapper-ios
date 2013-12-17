@@ -26,6 +26,11 @@
 #pragma mark - Barcode Scanning  and ZBarReaderDelegate
 - (IBAction)showCameraScanner:(id)sender
 {
+#if 0
+	self.startURL = [NSURL URLWithString:@"https://ihl-indivoui-staging.tch.harvard.edu/survey_app/launch?token=eyJhbGciOiJIUzUxMiJ9.eyJyZWNvcmRJZCI6ImY2ZDc3ZTg0LTNkZjMtNGFjMi1iOGEzLTEzMzNhOWQ1NGE0MyIsImV4cCI6MTM4NzI5NDY5Njg3OSwianRpIjoiOWI3OWE0OGUtYmJjZS00ZmNhLWFkYmMtNDkwNGRhNmI3ZDZjIiwiaWF0IjoxMzg3Mjk0MDk2ODc5fQ.huErbCvESvBdrD_sgmoEkrL9kW0rRby5GxCmKrXQdS1ta2CAaICuKJtVt-gyItzuRN_Ltk-aT6GPhNRfLWeYOQ"];
+	return;
+#endif
+	
 	ZBarReaderViewController *reader = [ZBarReaderViewController new];
 	reader.readerDelegate = self;
 	
@@ -82,7 +87,8 @@
 	}
 	
 	_scanView.alpha = 0.f;
-	_scanView.transform = CGAffineTransformMakeScale(1.3f, 1.3f);
+	_scanView.transform = CGAffineTransformMakeScale(1.8f, 1.8f);
+	_scanView.hidden = NO;
 	[UIView animateWithDuration:0.25
 					 animations:^{
 						 _scanView.alpha = 1.f;
@@ -99,7 +105,7 @@
 	
 	[UIView animateWithDuration:0.25
 					 animations:^{
-						 _scanView.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
+						 _scanView.transform = CGAffineTransformMakeScale(0.5f, 0.5f);
 						 _scanView.alpha = 0.f;
 					 }
 					 completion:^(BOOL finished) {
