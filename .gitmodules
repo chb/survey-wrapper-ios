@@ -1,0 +1,3 @@
+[submodule "ZBar"]
+	path = ZBar
+	url = git@github.com:p2/ZBar.git

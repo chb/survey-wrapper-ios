@@ -1,21 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4511" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="VBE-hm-f6d">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3745"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="eqt-EA-idG">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CHViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="VBE-hm-f6d" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="csR-OP-oRV">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="T98-vb-eR5" kind="relationship" relationship="rootViewController" id="pmJ-HH-hcS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vkH-8m-cql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="823" y="-281"/>
+        </scene>
+        <!--Survey View Controller-->
+        <scene sceneID="Cja-ib-FY8">
+            <objects>
+                <viewController id="T98-vb-eR5" customClass="CHSurveyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZMG-j6-dpg"/>
+                        <viewControllerLayoutGuide type="bottom" id="BeP-WL-r22"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AsC-ce-mwU">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dO-cS-RBU">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMd-D1-21O">
+                                <rect key="frame" x="192" y="320" width="384" height="384"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUf-nX-CnL">
+                                        <rect key="frame" x="168" y="173" width="48" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Scan">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showCameraScanner:" destination="T98-vb-eR5" eventType="touchUpInside" id="Nke-LR-ghT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="384" id="6po-G2-eJU"/>
+                                    <constraint firstAttribute="centerY" secondItem="sUf-nX-CnL" secondAttribute="centerY" id="SjB-6P-r1S"/>
+                                    <constraint firstAttribute="centerX" secondItem="sUf-nX-CnL" secondAttribute="centerX" id="dah-jM-cZC"/>
+                                    <constraint firstAttribute="height" constant="384" id="u68-IP-sxa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7dO-cS-RBU" firstAttribute="leading" secondItem="AsC-ce-mwU" secondAttribute="leading" id="4Hb-Kd-ldD"/>
+                            <constraint firstAttribute="centerY" secondItem="EMd-D1-21O" secondAttribute="centerY" id="AVF-4b-g6H"/>
+                            <constraint firstItem="BeP-WL-r22" firstAttribute="top" secondItem="7dO-cS-RBU" secondAttribute="bottom" id="h06-qq-o2G"/>
+                            <constraint firstAttribute="centerX" secondItem="EMd-D1-21O" secondAttribute="centerX" id="j0G-Rr-65k"/>
+                            <constraint firstItem="7dO-cS-RBU" firstAttribute="top" secondItem="AsC-ce-mwU" secondAttribute="top" id="lBe-Ko-721"/>
+                            <constraint firstAttribute="trailing" secondItem="7dO-cS-RBU" secondAttribute="trailing" id="v8q-71-lPb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rAK-sJ-t5G">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Exit" style="done" id="JQu-og-ldM">
+                            <connections>
+                                <action selector="askToReset:" destination="T98-vb-eR5" id="Gca-Pd-TmA"/>
+                                <segue destination="s3x-Ph-ael" kind="unwind" unwindAction="unwindModal:" id="sLH-fb-8Gj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="exitButton" destination="JQu-og-ldM" id="Hqp-Jk-LMi"/>
+                        <outlet property="scanView" destination="EMd-D1-21O" id="gBW-zw-fni"/>
+                        <outlet property="webView" destination="7dO-cS-RBU" id="Iqm-ck-lBb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BvO-5C-jWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s3x-Ph-ael" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1793" y="-281"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
