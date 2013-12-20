@@ -9,6 +9,13 @@
 #import "CHSurveyViewController.h"
 
 
+@interface CHSurveyViewController () {
+	BOOL dontAskToExit;
+}
+
+@end
+
+
 @implementation CHSurveyViewController
 
 
@@ -26,7 +33,7 @@
 #pragma mark - Barcode Scanning  and ZBarReaderDelegate
 - (IBAction)showCameraScanner:(id)sender
 {
-#if 0
+#if TARGET_IPHONE_SIMULATOR
 	self.startURL = [NSURL URLWithString:@"https://ihl-indivoui-staging.tch.harvard.edu/survey_app/launch?token=eyJhbGciOiJIUzUxMiJ9.eyJyZWNvcmRJZCI6ImY2ZDc3ZTg0LTNkZjMtNGFjMi1iOGEzLTEzMzNhOWQ1NGE0MyIsImV4cCI6MTM4NzI5NDY5Njg3OSwianRpIjoiOWI3OWE0OGUtYmJjZS00ZmNhLWFkYmMtNDkwNGRhNmI3ZDZjIiwiaWF0IjoxMzg3Mjk0MDk2ODc5fQ.huErbCvESvBdrD_sgmoEkrL9kW0rRby5GxCmKrXQdS1ta2CAaICuKJtVt-gyItzuRN_Ltk-aT6GPhNRfLWeYOQ"];
 	return;
 #endif
@@ -120,6 +127,7 @@
 - (IBAction)loadURL:(NSURL *)url
 {
 	[self hideScanButtonAnimated:YES];
+	dontAskToExit = NO;
 	_exitButton.enabled = YES;
 	
 	[super loadURL:url];
@@ -133,10 +141,26 @@
 	_exitButton.enabled = NO;
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+	// once we logged out, never ask again since you can't login again
+	if ([[webView.request.URL lastPathComponent] isEqualToString:@"logout"]) {
+		dontAskToExit = YES;
+	}
+	
+	[super webViewDidFinishLoad:webView];
+}
+
 - (IBAction)askToReset:(id)sender
 {
+	if (dontAskToExit) {
+		[self reset:sender];
+		return;
+	}
+	
+	// ask to exit
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Exit Survey?"
-													message:@"Are you sure?"
+													message:@"You can scan the QR code again to return to this screen."
 												   delegate:self
 										  cancelButtonTitle:@"Stay"
 										  otherButtonTitles:@"Exit", nil];

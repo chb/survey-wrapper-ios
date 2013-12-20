@@ -13,6 +13,7 @@
 @interface CHWebViewController ()
 
 @property (strong, nonatomic) NSMutableArray *history;				//< Holds NSURLs (currently only used to reload the last page when an error occurred)
+@property (weak, nonatomic) UIBarButtonItem *loadingItem;			//< A bar item showing a spinner
 @property (weak, nonatomic) SMActionView *loadingView;				//< A private view overlaid during loading activity
 
 @end
@@ -135,23 +136,17 @@
 	if (aWebView != _webView) {
 		return NO;
 	}
+	DLog(@"-->  %@", request.URL);
 	
-	// show loading indicator if loading from web
+	// show loading indicator if not loading local files
 	if (![[request.URL scheme] isEqualToString:@"file"]) {
 		[self showLoadingIndicator:nil];
 	}
 	
 	// handle history
-	if (UIWebViewNavigationTypeFormSubmitted == navigationType || UIWebViewNavigationTypeLinkClicked == navigationType) {
+	if (0 == [_history count] || UIWebViewNavigationTypeFormSubmitted == navigationType || UIWebViewNavigationTypeLinkClicked == navigationType) {
 		[self.history addObject:request.URL];
 	}
-	
-	// we're at the initial page
-	else if ([_history count] < 1) {
-		[self.history addObject:request.URL];
-	}
-	
-//	[self showHideBackButton];
 	
 	return YES;
 }
@@ -164,6 +159,7 @@
 	}
 	
 	[self hideLoadingIndicator:nil];
+	[self showHideBackButton];
 }
 
 - (void)webView:(UIWebView *)aWebView didFailLoadWithError:(NSError *)error
@@ -221,6 +217,7 @@
 	}
 	else {
 		self.navigationItem.leftBarButtonItem = nil;
+		self.backButton = nil;
 	}
 }
 
@@ -235,12 +232,28 @@
 
 
 
-#pragma mark - Progress Indicator
+#pragma mark - Loading Indicator
 /**
  *  Overlays the web view with a semi-transparent loading animatien.
  *  @param sender The button sending the action (can be nil)
  */
 - (void)showLoadingIndicator:(id)sender
+{
+	if (_loadingView || _loadingItem) {
+		return;
+	}
+	
+	if (0 == [_history count]) {
+		[self showLoadingOverlay:sender];
+	}
+	else {
+		UIBarButtonItem *item = [self getLoadingItem];
+		self.navigationItem.leftBarButtonItem = item;
+		self.loadingItem = item;
+	}
+}
+
+- (void)showLoadingOverlay:(id)sender
 {
 	SMActionView *loadingView = _loadingView;
 	if (!loadingView) {
@@ -268,6 +281,22 @@
 - (void)hideLoadingIndicator:(id)sender
 {
 	[_loadingView hideAnimated:(nil != sender) completion:NULL];
+	if (_loadingItem == self.navigationItem.leftBarButtonItem) {
+		self.navigationItem.leftBarButtonItem = nil;
+	}
+}
+
+- (UIBarButtonItem *)getLoadingItem
+{
+	if (_loadingItem) {
+		return _loadingItem;
+	}
+	
+	UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	spinner.hidesWhenStopped = YES;
+	[spinner startAnimating];
+	
+	return [[UIBarButtonItem alloc] initWithCustomView:spinner];
 }
 
 

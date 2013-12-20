@@ -19,7 +19,7 @@
 @property (copy, nonatomic) NSString *jsOnEveryLoad;						//< JavaScript to be executed when any page has loaded
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;					//< The web view to present HTML
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;			//< To navigate back
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *backButton;			//< To navigate back
 
 - (IBAction)loadURL:(NSURL *)url;
 - (IBAction)reload:(id)sender;
