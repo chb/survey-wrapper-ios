@@ -136,7 +136,7 @@
 	if (aWebView != _webView) {
 		return NO;
 	}
-	DLog(@"-->  %@", request.URL);
+	//DLog(@"-->  %@", request.URL);
 	
 	// show loading indicator if not loading local files
 	if (![[request.URL scheme] isEqualToString:@"file"]) {
