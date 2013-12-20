@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EE4A3E061860D62E007221AC /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A3E051860D62E007221AC /* CHWebViewController.m */; };
+		EE5790CC1864ECC6005A3A43 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5790CB1864ECC6005A3A43 /* Default-Portrait~ipad.png */; };
+		EE5790CE1864ECD3005A3A43 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5790CD1864ECD3005A3A43 /* Default-Landscape~ipad.png */; };
 		EEAEB0801860A26000B608B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB07F1860A26000B608B9 /* Foundation.framework */; };
 		EEAEB0821860A26000B608B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB0811860A26000B608B9 /* CoreGraphics.framework */; };
 		EEAEB0841860A26000B608B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB0831860A26000B608B9 /* UIKit.framework */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		EE4A3E041860D62E007221AC /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		EE4A3E051860D62E007221AC /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
+		EE5790CB1864ECC6005A3A43 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = SOURCE_ROOT; };
+		EE5790CD1864ECD3005A3A43 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = SOURCE_ROOT; };
 		EEAEB07C1860A26000B608B9 /* Surveys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Surveys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAEB07F1860A26000B608B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EEAEB0811860A26000B608B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -287,6 +291,8 @@
 		EEAEB1081860AE4500B608B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EE5790CD1864ECD3005A3A43 /* Default-Landscape~ipad.png */,
+				EE5790CB1864ECC6005A3A43 /* Default-Portrait~ipad.png */,
 				EEAEB1091860AE4500B608B9 /* zbar-back.png */,
 				EEAEB10A1860AE4500B608B9 /* zbar-help.html */,
 				EEAEB10B1860AE4500B608B9 /* zbar-helpicons.png */,
@@ -372,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE5790CE1864ECD3005A3A43 /* Default-Landscape~ipad.png in Resources */,
 				EEAEB1101860AE4500B608B9 /* zbar-helpicons.png in Resources */,
 				EEAEB0981860A26000B608B9 /* Images.xcassets in Resources */,
 				EEAEB1111860AE4500B608B9 /* zbar-samples.png in Resources */,
@@ -379,6 +386,7 @@
 				EEAEB10E1860AE4500B608B9 /* zbar-back.png in Resources */,
 				EEAEB08A1860A26000B608B9 /* InfoPlist.strings in Resources */,
 				EEAEB0931860A26000B608B9 /* Main.storyboard in Resources */,
+				EE5790CC1864ECC6005A3A43 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
