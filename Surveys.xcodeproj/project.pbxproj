@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EE4A3E061860D62E007221AC /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A3E051860D62E007221AC /* CHWebViewController.m */; };
-		EE5790CC1864ECC6005A3A43 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5790CB1864ECC6005A3A43 /* Default-Portrait~ipad.png */; };
-		EE5790CE1864ECD3005A3A43 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5790CD1864ECD3005A3A43 /* Default-Landscape~ipad.png */; };
 		EEAEB0801860A26000B608B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB07F1860A26000B608B9 /* Foundation.framework */; };
 		EEAEB0821860A26000B608B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB0811860A26000B608B9 /* CoreGraphics.framework */; };
 		EEAEB0841860A26000B608B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB0831860A26000B608B9 /* UIKit.framework */; };
@@ -35,6 +33,7 @@
 		EEAEB10F1860AE4500B608B9 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = EEAEB10A1860AE4500B608B9 /* zbar-help.html */; };
 		EEAEB1101860AE4500B608B9 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = EEAEB10B1860AE4500B608B9 /* zbar-helpicons.png */; };
 		EEAEB1111860AE4500B608B9 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = EEAEB10C1860AE4500B608B9 /* zbar-samples.png */; };
+		EECE337F1892E2D000D3A0C2 /* CHBarReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EECE337E1892E2D000D3A0C2 /* CHBarReaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +49,6 @@
 /* Begin PBXFileReference section */
 		EE4A3E041860D62E007221AC /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		EE4A3E051860D62E007221AC /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
-		EE5790CB1864ECC6005A3A43 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = SOURCE_ROOT; };
-		EE5790CD1864ECD3005A3A43 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = SOURCE_ROOT; };
 		EEAEB07C1860A26000B608B9 /* Surveys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Surveys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAEB07F1860A26000B608B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EEAEB0811860A26000B608B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -103,6 +100,8 @@
 		EEAEB10A1860AE4500B608B9 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		EEAEB10B1860AE4500B608B9 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		EEAEB10C1860AE4500B608B9 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		EECE337D1892E2D000D3A0C2 /* CHBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHBarReaderViewController.h; sourceTree = "<group>"; };
+		EECE337E1892E2D000D3A0C2 /* CHBarReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHBarReaderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +220,8 @@
 				EE4A3E051860D62E007221AC /* CHWebViewController.m */,
 				EEAEB0941860A26000B608B9 /* CHSurveyViewController.h */,
 				EEAEB0951860A26000B608B9 /* CHSurveyViewController.m */,
+				EECE337D1892E2D000D3A0C2 /* CHBarReaderViewController.h */,
+				EECE337E1892E2D000D3A0C2 /* CHBarReaderViewController.m */,
 			);
 			name = "View Controller";
 			path = ViewController;
@@ -291,8 +292,6 @@
 		EEAEB1081860AE4500B608B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EE5790CD1864ECD3005A3A43 /* Default-Landscape~ipad.png */,
-				EE5790CB1864ECC6005A3A43 /* Default-Portrait~ipad.png */,
 				EEAEB1091860AE4500B608B9 /* zbar-back.png */,
 				EEAEB10A1860AE4500B608B9 /* zbar-help.html */,
 				EEAEB10B1860AE4500B608B9 /* zbar-helpicons.png */,
@@ -349,6 +348,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Pascal Pfiffner";
 				TargetAttributes = {
+					EEAEB07B1860A26000B608B9 = {
+						DevelopmentTeam = MH6DGH3QYY;
+					};
 					EEAEB09C1860A26000B608B9 = {
 						TestTargetID = EEAEB07B1860A26000B608B9;
 					};
@@ -378,7 +380,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5790CE1864ECD3005A3A43 /* Default-Landscape~ipad.png in Resources */,
 				EEAEB1101860AE4500B608B9 /* zbar-helpicons.png in Resources */,
 				EEAEB0981860A26000B608B9 /* Images.xcassets in Resources */,
 				EEAEB1111860AE4500B608B9 /* zbar-samples.png in Resources */,
@@ -386,7 +387,6 @@
 				EEAEB10E1860AE4500B608B9 /* zbar-back.png in Resources */,
 				EEAEB08A1860A26000B608B9 /* InfoPlist.strings in Resources */,
 				EEAEB0931860A26000B608B9 /* Main.storyboard in Resources */,
-				EE5790CC1864ECC6005A3A43 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EECE337F1892E2D000D3A0C2 /* CHBarReaderViewController.m in Sources */,
 				EE4A3E061860D62E007221AC /* CHWebViewController.m in Sources */,
 				EEAEB08C1860A26000B608B9 /* main.m in Sources */,
 				EEAEB0901860A26000B608B9 /* CHAppDelegate.m in Sources */,

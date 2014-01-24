@@ -45,7 +45,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="Scan Code">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="showCameraScanner:" destination="T98-vb-eR5" eventType="touchUpInside" id="Nke-LR-ghT"/>
@@ -89,6 +89,71 @@
                 <exit id="s3x-Ph-ael" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1793" y="-281"/>
+        </scene>
+        <!--Bar Reader View Controller-->
+        <scene sceneID="NJW-id-XUM">
+            <objects>
+                <viewController storyboardIdentifier="BarReader" id="sK8-gh-XH7" customClass="CHBarReaderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UJs-vj-TX0"/>
+                        <viewControllerLayoutGuide type="bottom" id="idN-NU-Agn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EaO-8w-3ez">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cp-y8-33C" customClass="ZBarReaderView">
+                                <rect key="frame" x="0.0" y="128" width="768" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="768" id="TZx-PU-ELJ"/>
+                                    <constraint firstAttribute="width" constant="768" id="tuh-1L-fpC"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-Ai-aM7">
+                                <rect key="frame" x="709" y="49" width="39" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="sK8-gh-XH7" eventType="touchUpInside" id="mee-xm-MEn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Center the QR code on screen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="8Es-p7-zDI">
+                                <rect key="frame" x="20" y="916" width="728" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="EKH-Xt-CZN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C7w-Ai-aM7" firstAttribute="top" secondItem="UJs-vj-TX0" secondAttribute="bottom" constant="29" id="Gnm-U3-wTl"/>
+                            <constraint firstAttribute="centerX" secondItem="3Cp-y8-33C" secondAttribute="centerX" id="Jbg-oi-c0z"/>
+                            <constraint firstAttribute="centerY" secondItem="3Cp-y8-33C" secondAttribute="centerY" id="JhU-DF-Uiv"/>
+                            <constraint firstItem="8Es-p7-zDI" firstAttribute="leading" secondItem="EaO-8w-3ez" secondAttribute="leading" constant="20" id="MJR-Js-WH6"/>
+                            <constraint firstAttribute="trailing" secondItem="C7w-Ai-aM7" secondAttribute="trailing" constant="20" id="htA-9L-0Kc"/>
+                            <constraint firstAttribute="trailing" secondItem="8Es-p7-zDI" secondAttribute="trailing" constant="20" id="s14-NK-cad"/>
+                            <constraint firstItem="8Es-p7-zDI" firstAttribute="top" secondItem="3Cp-y8-33C" secondAttribute="bottom" constant="20" id="w5b-sm-jcx"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="3y9-v6-3kk"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="readerViewContainer" destination="3Cp-y8-33C" id="vL5-cW-WGP"/>
+                        <outlet property="view" destination="EaO-8w-3ez" id="IQe-nU-fs9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LkM-dq-2g1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1793" y="930"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

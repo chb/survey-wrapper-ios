@@ -7,6 +7,7 @@
 //
 
 #import "CHSurveyViewController.h"
+#import "CHBarReaderViewController.h"
 
 
 @interface CHSurveyViewController () {
@@ -38,17 +39,17 @@
 	return;
 #endif
 	
-	ZBarReaderViewController *reader = [ZBarReaderViewController new];
-	reader.readerDelegate = self;
+	CHBarReaderViewController *reader = [self.storyboard instantiateViewControllerWithIdentifier:@"BarReader"];
+	reader.delegate = self;
 	
-	// we only need to look out for QR-codes
+	//ZBarReaderViewController *reader = [ZBarReaderViewController new];
+	//reader.readerDelegate = self;
+	
+	// configure to look out for QR-codes
 	[reader.scanner setSymbology:0 config:ZBAR_CFG_ENABLE to:0];
 	[reader.scanner setSymbology:ZBAR_QRCODE config:ZBAR_CFG_ENABLE to:1];
 	
-	reader.readerView.zoom = 1.0;
-//	reader.scanCrop = CGRectMake(0.f, 0.3f, 1.f, 0.4f);
-	
-	[self presentViewController:reader animated:YES completion:nil];
+	[self presentViewController:reader animated:YES completion:NULL];
 }
 
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
