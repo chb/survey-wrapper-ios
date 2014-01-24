@@ -12,6 +12,7 @@
 
 @interface CHSurveyViewController () {
 	BOOL dontAskToExit;
+	BOOL waitingToDismissReader;
 }
 
 @end
@@ -54,6 +55,10 @@
 
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
+	if (waitingToDismissReader) {
+		return;
+	}
+	
 	id<NSFastEnumeration> results = info[ZBarReaderControllerResults];
 	for (ZBarSymbol *rslt in results) {
 		
@@ -63,7 +68,8 @@
 				NSURL *url = [NSURL URLWithString:rslt.data];
 				
 				// hide picker and show URL
-				[self imagePickerControllerDidCancel:picker];
+				waitingToDismissReader = YES;
+				[self performSelector:@selector(imagePickerControllerDidCancel:) withObject:picker afterDelay:0.25];		// use a timeout to show the green square
 				self.startURL = url;
 				return;
 			}
@@ -82,6 +88,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
+	waitingToDismissReader = NO;
 }
 
 

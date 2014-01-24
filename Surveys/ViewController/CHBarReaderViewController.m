@@ -79,14 +79,11 @@
 - (void)updateReaderViewForOrientation:(UIInterfaceOrientation)orientation withDuration:(NSTimeInterval)duration
 {
 	CGFloat angle = 0.f;
-	if (UIInterfaceOrientationPortraitUpsideDown == orientation) {
-		angle = M_PI;
+	if (UIInterfaceOrientationIsPortrait(orientation)) {
+		angle = UIInterfaceOrientationPortraitUpsideDown == orientation ? M_PI : 0.f;
 	}
-	else if (UIInterfaceOrientationLandscapeLeft == orientation) {
-		angle = M_PI_2;
-	}
-	else if (UIInterfaceOrientationLandscapeRight == orientation) {
-		angle = -M_PI_2;
+	else {
+		angle = (UIInterfaceOrientationLandscapeLeft == orientation) ? M_PI_2 : -M_PI_2;
 	}
 	
 	[UIView animateWithDuration:duration
