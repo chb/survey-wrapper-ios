@@ -13,6 +13,7 @@
 @interface CHWebViewController ()
 
 @property (strong, nonatomic) NSMutableArray *history;				//< Holds NSURLs (currently only used to reload the last page when an error occurred)
+@property (nonatomic, readwrite) BOOL loadingStartURL;
 @property (weak, nonatomic) UIBarButtonItem *loadingItem;			//< A bar item showing a spinner
 @property (weak, nonatomic) SMActionView *loadingView;				//< A private view overlaid during loading activity
 
@@ -38,8 +39,8 @@
 	[super viewWillAppear:animated];
 	
 	if ([_history count] < 1) {
-		if (self.startURL) {
-			[self loadURL:self.startURL];
+		if (_startURL && !_loadingStartURL) {
+			[self loadURL:_startURL];
 		}
 	}
 }
@@ -60,10 +61,12 @@
 	if (newURL != _startURL) {
 		_startURL = newURL;
 		
+		self.loadingStartURL = NO;
 		self.history = nil;
 		
 		if ([self isViewLoaded]) {
 			if (_startURL) {
+				self.loadingStartURL = YES;
 				[self loadURL:_startURL];
 			}
 			else {
@@ -80,7 +83,8 @@
  */
 - (IBAction)loadURL:(NSURL *)url
 {
-	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	DLog(@"Load URL: %@", url);
+	NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
 	[self.webView loadRequest:request];
 }
 

@@ -11,7 +11,7 @@
 
 
 @interface CHSurveyViewController () {
-	BOOL dontAskToExit;
+	BOOL askToExit;
 	BOOL waitingToDismissReader;
 }
 
@@ -135,7 +135,6 @@
 - (IBAction)loadURL:(NSURL *)url
 {
 	[self hideScanButtonAnimated:YES];
-	dontAskToExit = NO;
 	_exitButton.enabled = YES;
 	
 	[super loadURL:url];
@@ -153,7 +152,10 @@
 {
 	// once we logged out, never ask again since you can't login again
 	if ([[webView.request.URL lastPathComponent] isEqualToString:@"logout"]) {
-		dontAskToExit = YES;
+		askToExit = NO;
+	}
+	else {
+		askToExit = YES;
 	}
 	
 	[super webViewDidFinishLoad:webView];
@@ -161,7 +163,7 @@
 
 - (IBAction)askToReset:(id)sender
 {
-	if (dontAskToExit) {
+	if (!askToExit) {
 		[self reset:sender];
 		return;
 	}
