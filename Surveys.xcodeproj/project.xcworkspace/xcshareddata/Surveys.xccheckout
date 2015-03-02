@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>79D29220-6614-4A98-B344-6E3752F80876</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Surveys</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>494957569499F182E8B8C8FB1C13C6EF1320F5E3</key>
+		<string>github.com:p2/ZBar.git</string>
+		<key>B825D0F404A4E4D881D3B03EE2850C89847FE040</key>
+		<string>github.com:chb/survey-wrapper-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Surveys.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>494957569499F182E8B8C8FB1C13C6EF1320F5E3</key>
+		<string>../../ZBar/</string>
+		<key>B825D0F404A4E4D881D3B03EE2850C89847FE040</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:chb/survey-wrapper-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B825D0F404A4E4D881D3B03EE2850C89847FE040</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B825D0F404A4E4D881D3B03EE2850C89847FE040</string>
+			<key>IDESourceControlWCCName</key>
+			<string>med-app-wrapper-ios</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>494957569499F182E8B8C8FB1C13C6EF1320F5E3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZBar</string>
+		</dict>
+	</array>
+</dict>
+</plist>
