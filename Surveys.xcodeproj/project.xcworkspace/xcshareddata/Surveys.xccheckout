@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>494957569499F182E8B8C8FB1C13C6EF1320F5E3</key>
-		<string>../../ZBar/</string>
+		<string>../../ZBar</string>
 		<key>B825D0F404A4E4D881D3B03EE2850C89847FE040</key>
 		<string>../..</string>
 	</dict>

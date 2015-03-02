@@ -6,9 +6,12 @@ Simple app to wrap launching a web page via link embedded into QR-code.
 Building
 --------
 
-You first need to compile the ZBar SDK, contained as a submodule, and place
-the library and the header files into the directory `ZBarSDK` at the root of
-this project.
+The project includes the [ZBar][] library as a submodule.
+Xcode should automatically build and link the ZBar library when running the app.
+
+1. Clone the repo: `$ git clone --recursive git@github.com:chb/survey-wrapper-ios.git`
+2. Open `Surveys.xcodeproj` in Xcode
+3. Build and run
 
 
 Apache License, Version 2.0
@@ -27,3 +30,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+
+[zbar]: https://github.com/p2/ZBar

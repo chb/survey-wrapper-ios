@@ -33,10 +33,11 @@
 
 
 #pragma mark - Barcode Scanning  and ZBarReaderDelegate
+
 - (IBAction)showCameraScanner:(id)sender
 {
 #if TARGET_IPHONE_SIMULATOR
-	self.startURL = [NSURL URLWithString:@"https://ihl-indivoui-staging.tch.harvard.edu/survey_app/launch?token=eyJhbGciOiJIUzUxMiJ9.eyJyZWNvcmRJZCI6ImY2ZDc3ZTg0LTNkZjMtNGFjMi1iOGEzLTEzMzNhOWQ1NGE0MyIsImV4cCI6MTM4NzI5NDY5Njg3OSwianRpIjoiOWI3OWE0OGUtYmJjZS00ZmNhLWFkYmMtNDkwNGRhNmI3ZDZjIiwiaWF0IjoxMzg3Mjk0MDk2ODc5fQ.huErbCvESvBdrD_sgmoEkrL9kW0rRby5GxCmKrXQdS1ta2CAaICuKJtVt-gyItzuRN_Ltk-aT6GPhNRfLWeYOQ"];
+	self.startURL = [NSURL URLWithString:@"http://192.168.88.22/?token=simulated"];
 	return;
 #endif
 	
@@ -94,6 +95,7 @@
 
 
 #pragma mark - Scan Button View
+
 - (void)showScanButtonAnimated:(BOOL)animated
 {
 	if (!_scanView.hidden || !animated) {
@@ -132,6 +134,7 @@
 
 
 #pragma mark - Web View
+
 - (IBAction)loadURL:(NSURL *)url
 {
 	[self hideScanButtonAnimated:YES];
@@ -143,15 +146,18 @@
 - (void)clearWebView
 {
 	[super clearWebView];
-	
 	[self showScanButtonAnimated:YES];
 	_exitButton.enabled = NO;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-	// once we logged out, never ask again since you can't login again
-	if ([[webView.request.URL lastPathComponent] isEqualToString:@"logout"]) {
+	// when hitting "exit", reset the web view. When hitting "logout", don't ask for confirmation when tapping the "Exit" button
+	if ([[webView.request.URL lastPathComponent] isEqualToString:@"exit"]) {
+		askToExit = NO;
+		[self reset:webView];
+	}
+	else if ([[webView.request.URL lastPathComponent] isEqualToString:@"logout"]) {
 		askToExit = NO;
 	}
 	else {
