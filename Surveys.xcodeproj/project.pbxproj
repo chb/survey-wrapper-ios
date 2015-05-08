@@ -308,7 +308,7 @@
 			attributes = {
 				CLASSPREFIX = CH;
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "Pascal Pfiffner";
+				ORGANIZATIONNAME = "Boston Children's Hospital";
 				TargetAttributes = {
 					EEAEB07B1860A26000B608B9 = {
 						DevelopmentTeam = 9YBWZSFNY3;

@@ -3,7 +3,7 @@
 //  SurveysTests
 //
 //  Created by Pascal Pfiffner on 12/17/13.
-//  Copyright (c) 2013 Pascal Pfiffner. All rights reserved.
+//  Copyright (c) 2013 Boston Children's Hospital. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
