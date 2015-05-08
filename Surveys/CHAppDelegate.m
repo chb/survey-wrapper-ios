@@ -19,6 +19,7 @@
 	UINavigationController *root = (UINavigationController *)_window.rootViewController;
 	CHSurveyViewController *main = (CHSurveyViewController *)root.topViewController;
 	if ([main isKindOfClass:[CHSurveyViewController class]]) {
+		main.limitToDomain = @"harvard.edu";
 		//main.enableInAppScan = YES;
 	}
 	

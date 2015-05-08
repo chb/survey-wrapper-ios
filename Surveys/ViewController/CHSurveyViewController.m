@@ -18,7 +18,7 @@
 
 @property (nonatomic) BOOL waitingToDismissReader;
 
-@property (strong, nonatomic) CHScannedCodeHandler *startHandler;
+@property (strong, nonatomic) CHScannedQRCodeURLHandler *startHandler;
 @property (strong, nonatomic) CHScannedCodeHandler *inAppHandler;
 @property (strong, nonatomic) CHScannedCodeHandler *currentHandler;
 
@@ -40,9 +40,11 @@
 	
 	// setup the main handler, looking for URLs and loading the first one it finds
 	self.startHandler = [CHScannedQRCodeURLHandler new];
+	_startHandler.limitToDomain = _limitToDomain;
 	_startHandler.handleCallback = ^(NSString *code, NSError *error) {
 		if (error) {
-			DLog(@"INVALID CODE \"%@\": %@", code, error.localizedDescription);
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid QR Code" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+			[alert show];
 		}
 		else {
 			this.waitingToDismissReader = YES;

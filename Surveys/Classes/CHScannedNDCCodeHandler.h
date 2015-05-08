@@ -8,6 +8,10 @@
 
 #import "CHScannedCodeHandler.h"
 
+
+/**
+ *  A code handler that scans NDC codes and cuts off leading and check digits on success.
+ */
 @interface CHScannedNDCCodeHandler : CHScannedCodeHandler
 
 @end

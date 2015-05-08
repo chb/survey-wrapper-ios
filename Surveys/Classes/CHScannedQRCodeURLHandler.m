@@ -20,7 +20,19 @@
 - (void)handleCode:(NSString *)code
 {
 	if ([code hasPrefix:@"http"]) {
-		[self handledCodeSuccessfully:code];
+		if (_limitToDomain) {
+			NSURLComponents *url = [NSURLComponents componentsWithString:code];
+			if ([url.host hasSuffix:_limitToDomain]) {
+				[self handledCodeSuccessfully:code];
+			}
+			else {
+				NSString *reason = [NSString stringWithFormat:@"Must be in domain \"%@\", but is in \"%@\"", _limitToDomain, url.host];
+				[self failedToHandleCode:code because:reason];
+			}
+		}
+		else {
+			[self handledCodeSuccessfully:code];
+		}
 	}
 	else {
 		[self failedToHandleCode:code because:@"Must start with \"http\""];

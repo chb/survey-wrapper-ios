@@ -8,6 +8,13 @@
 
 #import "CHScannedCodeHandler.h"
 
+
+/**
+ *  A code handler that expects a "http" or "https" URL from a QR code, optionally in a given domain.
+ */
 @interface CHScannedQRCodeURLHandler : CHScannedCodeHandler
+
+/// If URLs should be limited to a given domain.
+@property (copy, nonatomic) NSString *limitToDomain;
 
 @end
