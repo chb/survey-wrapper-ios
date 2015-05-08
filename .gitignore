@@ -3,6 +3,7 @@
 # Xcode user data
 !*.xcodeproj/project.pbxproj
 xcuserdata
+**.xccheckout
 
 # ignore ZBarSDK directory
 ZBarSDK

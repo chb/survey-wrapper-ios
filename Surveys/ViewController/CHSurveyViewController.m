@@ -31,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	_scanView.transform = CGAffineTransformMakeScale(0.25f, 0.25f);
 	
 	// somehow this gets lost from storyboard?
 	[_exitButton setTarget:self];
@@ -88,6 +89,16 @@
 	else {
 		self.inAppHandler = nil;
 		self.navigationItem.rightBarButtonItem = _exitButton;
+	}
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	if (!CGAffineTransformIsIdentity(_scanView.transform)) {
+		[UIView animateWithDuration:0.25 animations:^{				// ignore the `animated` flag here as it will be NO on app launch
+			_scanView.transform = CGAffineTransformIdentity;
+		}];
 	}
 }
 
