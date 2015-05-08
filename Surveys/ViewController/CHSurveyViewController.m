@@ -8,12 +8,19 @@
 
 #import "CHSurveyViewController.h"
 #import "CHBarReaderViewController.h"
+#import "CHScannedQRCodeURLHandler.h"
+#import "CHScannedNDCCodeHandler.h"
 
 
 @interface CHSurveyViewController () {
 	BOOL askToExit;
-	BOOL waitingToDismissReader;
 }
+
+@property (nonatomic) BOOL waitingToDismissReader;
+
+@property (strong, nonatomic) CHScannedCodeHandler *startHandler;
+@property (strong, nonatomic) CHScannedCodeHandler *inAppHandler;
+@property (strong, nonatomic) CHScannedCodeHandler *currentHandler;
 
 @end
 
@@ -28,6 +35,58 @@
 	// somehow this gets lost from storyboard?
 	[_exitButton setTarget:self];
 	[_exitButton setAction:@selector(askToReset:)];
+	
+	__weak typeof(self) this = self;
+	
+	// setup the main handler, looking for URLs and loading the first one it finds
+	self.startHandler = [CHScannedQRCodeURLHandler new];
+	_startHandler.handleCallback = ^(NSString *code, NSError *error) {
+		if (error) {
+			DLog(@"INVALID CODE \"%@\": %@", code, error.localizedDescription);
+		}
+		else {
+			this.waitingToDismissReader = YES;
+			this.startURL = [NSURL URLWithString:code];
+			[this hideCameraScanner:nil];
+		}
+	};
+	
+	[self handleCameraButtonVisibility];
+}
+
+- (void)setInAppScan:(BOOL)flag
+{
+	if (_enableInAppScan != flag) {
+		_enableInAppScan = flag;
+		[self handleCameraButtonVisibility];
+	}
+}
+
+- (void)handleCameraButtonVisibility
+{
+	if (![self isViewLoaded]) {
+		return;
+	}
+	
+	// if enabled, set up an NDC handler
+	if (_enableInAppScan) {
+		__weak typeof(self) this = self;
+		self.inAppHandler = [CHScannedNDCCodeHandler new];
+		_inAppHandler.handleCallback = ^(NSString *code, NSError *error) {
+			if (error) {
+				DLog(@"INVALID CODE \"%@\": %@", code, error.localizedDescription);
+			}
+			else {
+#warning You should define here which action a successful code scan executes
+				[this hideCameraScanner:nil];
+			}
+		};
+		self.navigationItem.rightBarButtonItems = @[_exitButton, _cameraButton];
+	}
+	else {
+		self.inAppHandler = nil;
+		self.navigationItem.rightBarButtonItem = _exitButton;
+	}
 }
 
 
@@ -47,36 +106,24 @@
 	//ZBarReaderViewController *reader = [ZBarReaderViewController new];
 	//reader.readerDelegate = self;
 	
-	// configure to look out for QR-codes
-	[reader.scanner setSymbology:0 config:ZBAR_CFG_ENABLE to:0];
-	[reader.scanner setSymbology:ZBAR_QRCODE config:ZBAR_CFG_ENABLE to:1];
-	
+	// configure the handler, depending on which button was pressed
+	self.currentHandler = (_cameraButton == sender) ? _inAppHandler : _startHandler;
+	[_currentHandler prepareReader:reader];
 	[self presentViewController:reader animated:YES completion:NULL];
 }
 
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
 {
-	if (waitingToDismissReader) {
+	if (_waitingToDismissReader) {
 		return;
 	}
 	
+	// handle the first code that we find
 	id<NSFastEnumeration> results = info[ZBarReaderControllerResults];
 	for (ZBarSymbol *rslt in results) {
-		
-		// only requirement is that the link should start with "https"
 		if ([rslt isKindOfClass:[ZBarSymbol class]]) {
-			if ([rslt.data hasPrefix:@"https"]) {
-				NSURL *url = [NSURL URLWithString:rslt.data];
-				
-				// hide picker and show URL
-				waitingToDismissReader = YES;
-				[self performSelector:@selector(imagePickerControllerDidCancel:) withObject:picker afterDelay:0.25];		// use a timeout to show the green square
-				self.startURL = url;
-				return;
-			}
-			else {
-				DLog(@"INVALID SCAN: %@", rslt.data);
-			}
+			[_currentHandler handleCode:rslt.data];
+			return;
 		}
 		else {
 			DLog(@"No ZBarSymbol, got: %@", rslt);
@@ -86,10 +133,15 @@
 	// still here? Nothing valid was scanned, then
 }
 
+- (void)hideCameraScanner:(id)sender
+{
+	[self performSelector:@selector(imagePickerControllerDidCancel:) withObject:nil afterDelay:0.6];		// use a timeout to not cut off showing the green square
+}
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
-	waitingToDismissReader = NO;
+	self.waitingToDismissReader = NO;
 }
 
 
@@ -139,6 +191,7 @@
 {
 	[self hideScanButtonAnimated:YES];
 	_exitButton.enabled = YES;
+	_cameraButton.enabled = YES;
 	
 	[super loadURL:url];
 }
@@ -148,6 +201,7 @@
 	[super clearWebView];
 	[self showScanButtonAnimated:YES];
 	_exitButton.enabled = NO;
+	_cameraButton.enabled = NO;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView

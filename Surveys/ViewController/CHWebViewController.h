@@ -14,12 +14,17 @@
  */
 @interface CHWebViewController : UIViewController <UIWebViewDelegate>
 
-@property (strong, nonatomic) NSURL *startURL;								//< The URL to load initially
+/// The URL to load initially.
+@property (strong, nonatomic) NSURL *startURL;
 
-@property (copy, nonatomic) NSString *jsOnEveryLoad;						//< JavaScript to be executed when any page has loaded
+/// JavaScript to be executed when any page has loaded.
+@property (copy, nonatomic) NSString *jsOnEveryLoad;
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;					//< The web view to present HTML
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *backButton;			//< To navigate back
+/// The web view to present HTML content in.
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+/// To navigate back.
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *backButton;
 
 - (IBAction)loadURL:(NSURL *)url;
 - (IBAction)reload:(id)sender;

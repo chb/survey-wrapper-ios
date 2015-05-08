@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		EE4A3E061860D62E007221AC /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4A3E051860D62E007221AC /* CHWebViewController.m */; };
 		EE4F8D181AA4BBB9007E4B9A /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE4F8D131AA4BB90007E4B9A /* libzbar.a */; };
+		EE7211A11AFC55DB00976579 /* CHScannedCodeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7211A01AFC55DB00976579 /* CHScannedCodeHandler.m */; };
+		EE7211A51AFC57A500976579 /* CHScannedQRCodeURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7211A41AFC57A500976579 /* CHScannedQRCodeURLHandler.m */; };
+		EE7211A81AFC57B200976579 /* CHScannedNDCCodeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7211A71AFC57B200976579 /* CHScannedNDCCodeHandler.m */; };
 		EEAEB0801860A26000B608B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB07F1860A26000B608B9 /* Foundation.framework */; };
 		EEAEB0821860A26000B608B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB0811860A26000B608B9 /* CoreGraphics.framework */; };
 		EEAEB0841860A26000B608B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAEB0831860A26000B608B9 /* UIKit.framework */; };
@@ -67,6 +70,12 @@
 		EE4A3E041860D62E007221AC /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		EE4A3E051860D62E007221AC /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		EE4F8D0B1AA4BB90007E4B9A /* zbar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = zbar.xcodeproj; path = ZBar/iphone/zbar.xcodeproj; sourceTree = "<group>"; };
+		EE72119F1AFC55DB00976579 /* CHScannedCodeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHScannedCodeHandler.h; sourceTree = "<group>"; };
+		EE7211A01AFC55DB00976579 /* CHScannedCodeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHScannedCodeHandler.m; sourceTree = "<group>"; };
+		EE7211A31AFC57A500976579 /* CHScannedQRCodeURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHScannedQRCodeURLHandler.h; sourceTree = "<group>"; };
+		EE7211A41AFC57A500976579 /* CHScannedQRCodeURLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHScannedQRCodeURLHandler.m; sourceTree = "<group>"; };
+		EE7211A61AFC57B200976579 /* CHScannedNDCCodeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHScannedNDCCodeHandler.h; sourceTree = "<group>"; };
+		EE7211A71AFC57B200976579 /* CHScannedNDCCodeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHScannedNDCCodeHandler.m; sourceTree = "<group>"; };
 		EEAEB07C1860A26000B608B9 /* Surveys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Surveys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAEB07F1860A26000B608B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EEAEB0811860A26000B608B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +145,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		EE7211A21AFC561000976579 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EE72119F1AFC55DB00976579 /* CHScannedCodeHandler.h */,
+				EE7211A01AFC55DB00976579 /* CHScannedCodeHandler.m */,
+				EE7211A31AFC57A500976579 /* CHScannedQRCodeURLHandler.h */,
+				EE7211A41AFC57A500976579 /* CHScannedQRCodeURLHandler.m */,
+				EE7211A61AFC57B200976579 /* CHScannedNDCCodeHandler.h */,
+				EE7211A71AFC57B200976579 /* CHScannedNDCCodeHandler.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		EEAEB0731860A26000B608B9 = {
 			isa = PBXGroup;
 			children = (
@@ -177,8 +199,9 @@
 			children = (
 				EEAEB08E1860A26000B608B9 /* CHAppDelegate.h */,
 				EEAEB08F1860A26000B608B9 /* CHAppDelegate.m */,
-				EEAEB0EB1860A9C900B608B9 /* Views */,
+				EE7211A21AFC561000976579 /* Classes */,
 				EEAEB0E11860A46F00B608B9 /* View Controller */,
+				EEAEB0EB1860A9C900B608B9 /* Views */,
 				EEAEB0911860A26000B608B9 /* Main.storyboard */,
 				EEAEB0971860A26000B608B9 /* Images.xcassets */,
 				EEAEB0861860A26000B608B9 /* Supporting Files */,
@@ -218,12 +241,12 @@
 		EEAEB0E11860A46F00B608B9 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EE4A3E041860D62E007221AC /* CHWebViewController.h */,
-				EE4A3E051860D62E007221AC /* CHWebViewController.m */,
 				EEAEB0941860A26000B608B9 /* CHSurveyViewController.h */,
 				EEAEB0951860A26000B608B9 /* CHSurveyViewController.m */,
 				EECE337D1892E2D000D3A0C2 /* CHBarReaderViewController.h */,
 				EECE337E1892E2D000D3A0C2 /* CHBarReaderViewController.m */,
+				EE4A3E041860D62E007221AC /* CHWebViewController.h */,
+				EE4A3E051860D62E007221AC /* CHWebViewController.m */,
 			);
 			name = "View Controller";
 			path = ViewController;
@@ -365,7 +388,10 @@
 			files = (
 				EECE337F1892E2D000D3A0C2 /* CHBarReaderViewController.m in Sources */,
 				EE4A3E061860D62E007221AC /* CHWebViewController.m in Sources */,
+				EE7211A81AFC57B200976579 /* CHScannedNDCCodeHandler.m in Sources */,
 				EEAEB08C1860A26000B608B9 /* main.m in Sources */,
+				EE7211A11AFC55DB00976579 /* CHScannedCodeHandler.m in Sources */,
+				EE7211A51AFC57A500976579 /* CHScannedQRCodeURLHandler.m in Sources */,
 				EEAEB0901860A26000B608B9 /* CHAppDelegate.m in Sources */,
 				EEAEB0EE1860A9E500B608B9 /* SMActionView.m in Sources */,
 				EEAEB0961860A26000B608B9 /* CHSurveyViewController.m in Sources */,

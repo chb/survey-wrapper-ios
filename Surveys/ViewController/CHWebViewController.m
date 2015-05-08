@@ -24,6 +24,7 @@
 
 
 #pragma mark - View Handling
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
@@ -53,6 +54,7 @@
 
 
 #pragma mark - Web View
+
 /*
  *  Setting the startURL clears the entire history and loads that url, if the view has been loaded.
  */
@@ -132,6 +134,7 @@
 
 
 #pragma mark - UIWebViewDelegate
+
 /*
  *  We intercept requests here
  */
@@ -190,6 +193,7 @@
 
 
 #pragma mark - History
+
 - (NSMutableArray *)history
 {
 	if (!_history) {
@@ -237,6 +241,7 @@
 
 
 #pragma mark - Loading Indicator
+
 /**
  *  Overlays the web view with a semi-transparent loading animatien.
  *  @param sender The button sending the action (can be nil)
@@ -306,6 +311,7 @@
 
 
 #pragma mark - KVC
+
 - (void)setTitle:(NSString *)newTitle
 {
 	self.navigationItem.title = newTitle;

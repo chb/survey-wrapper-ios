@@ -58,6 +58,7 @@
 
 
 #pragma mark - Reader View & Scanner
+
 - (ZBarReaderView *)readerView
 {
 	if (!_readerView) {
@@ -108,6 +109,7 @@
 
 
 #pragma mark - Delegate
+
 - (void)readerViewDidStart:(ZBarReaderView *)readerView
 {
 }
@@ -127,6 +129,7 @@
 
 
 #pragma mark - Actions
+
 - (IBAction)dismiss:(id)sender
 {
 	[self.presentingViewController dismissViewControllerAnimated:(nil != sender) completion:NULL];
