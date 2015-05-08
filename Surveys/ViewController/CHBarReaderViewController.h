@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIView *readerViewContainer;
 @property (strong, nonatomic) ZBarImageScanner *scanner;
 
+@property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
+
 - (IBAction)dismiss:(id)sender;
 
 @end

@@ -13,6 +13,7 @@
 
 - (void)prepareReader:(CHBarReaderViewController *)reader
 {
+	reader.instructionLabel.text = [[self class] scanPrompt];
 }
 
 - (void)handleCode:(NSString *)code
@@ -32,6 +33,11 @@
 	if (_handleCallback) {
 		_handleCallback(code, [NSError errorWithDomain:NSCocoaErrorDomain code:999 userInfo:@{NSLocalizedDescriptionKey: error}]);
 	}
+}
+
++ (NSString *)scanPrompt
+{
+	return @"Center the code on screen";
 }
 
 

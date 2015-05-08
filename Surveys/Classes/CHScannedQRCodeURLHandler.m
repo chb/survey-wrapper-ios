@@ -13,6 +13,7 @@
 
 - (void)prepareReader:(CHBarReaderViewController *)reader
 {
+	[super prepareReader:reader];
 	[reader.scanner setSymbology:0 config:ZBAR_CFG_ENABLE to:0];
 	[reader.scanner setSymbology:ZBAR_QRCODE config:ZBAR_CFG_ENABLE to:1];
 }
@@ -37,6 +38,11 @@
 	else {
 		[self failedToHandleCode:code because:@"Must start with \"http\""];
 	}
+}
+
++ (NSString *)scanPrompt
+{
+	return @"Center the QR code on screen";
 }
 
 

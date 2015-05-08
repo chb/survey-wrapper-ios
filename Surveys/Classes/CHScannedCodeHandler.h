@@ -33,4 +33,6 @@
 - (void)handledCodeSuccessfully:(NSString *)code;
 - (void)failedToHandleCode:(NSString *)code because:(NSString *)error;
 
++ (NSString *)scanPrompt;
+
 @end

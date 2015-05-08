@@ -149,6 +149,7 @@
                     <navigationItem key="navigationItem" id="3y9-v6-3kk"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="instructionLabel" destination="8Es-p7-zDI" id="Eke-fk-2GS"/>
                         <outlet property="readerViewContainer" destination="3Cp-y8-33C" id="vL5-cW-WGP"/>
                         <outlet property="view" destination="EaO-8w-3ez" id="IQe-nU-fs9"/>
                     </connections>

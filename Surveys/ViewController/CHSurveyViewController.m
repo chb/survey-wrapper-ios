@@ -104,7 +104,7 @@
 
 
 
-#pragma mark - Barcode Scanning  and ZBarReaderDelegate
+#pragma mark - Barcode Scanning and ZBarReaderDelegate
 
 - (IBAction)showCameraScanner:(id)sender
 {
@@ -119,10 +119,10 @@
 	//ZBarReaderViewController *reader = [ZBarReaderViewController new];
 	//reader.readerDelegate = self;
 	
-	// configure the handler, depending on which button was pressed
+	// configure the handler, depending on which button was pressed, present and THEN prepare the reader (needs UILabel)
 	self.currentHandler = (_cameraButton == sender) ? _inAppHandler : _startHandler;
+	[self presentViewController:reader animated:YES completion:nil];
 	[_currentHandler prepareReader:reader];
-	[self presentViewController:reader animated:YES completion:NULL];
 }
 
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info

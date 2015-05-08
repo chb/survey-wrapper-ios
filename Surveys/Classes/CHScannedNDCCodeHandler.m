@@ -13,6 +13,7 @@
 
 - (void)prepareReader:(CHBarReaderViewController *)reader
 {
+	[super prepareReader:reader];
 	[reader.scanner setSymbology:0 config:ZBAR_CFG_ENABLE to:0];
 	[reader.scanner setSymbology:ZBAR_UPCA config:ZBAR_CFG_ENABLE to:1];
 	[reader.scanner setSymbology:ZBAR_EAN13 config:ZBAR_CFG_ENABLE to:1];
@@ -32,6 +33,11 @@
 	else {
 		[self failedToHandleCode:code because:@"NDC barcodes start with \"3\" or \"03\""];
 	}
+}
+
++ (NSString *)scanPrompt
+{
+	return @"Center the barcode on screen";
 }
 
 
