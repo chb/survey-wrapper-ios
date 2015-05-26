@@ -80,7 +80,8 @@
 				DLog(@"INVALID CODE \"%@\": %@", code, error.localizedDescription);
 			}
 			else {
-#warning You should define here which action a successful code scan executes
+				NSString *js = [NSString stringWithFormat:@"externalSuggest(\"%@\")", code];
+				[this.webView stringByEvaluatingJavaScriptFromString:js];
 				[this hideCameraScanner:nil];
 			}
 		};
@@ -109,7 +110,8 @@
 - (IBAction)showCameraScanner:(id)sender
 {
 #if TARGET_IPHONE_SIMULATOR
-	self.startURL = [NSURL URLWithString:@"http://192.168.88.22/?token=simulated"];
+//	self.startURL = [NSURL URLWithString:@"http://192.168.88.22/?token=simulated"];
+	self.startURL = [NSURL URLWithString:@"http://104.236.24.173/?token=simulated"];
 	return;
 #endif
 	
