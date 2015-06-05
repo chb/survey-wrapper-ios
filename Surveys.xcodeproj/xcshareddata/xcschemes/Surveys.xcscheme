@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EEAEB07B1860A26000B608B9"
-               BuildableName = "Surveys.app"
+               BuildableName = "Med List.app"
                BlueprintName = "Surveys"
                ReferencedContainer = "container:Surveys.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EEAEB07B1860A26000B608B9"
-            BuildableName = "Surveys.app"
+            BuildableName = "Med List.app"
             BlueprintName = "Surveys"
             ReferencedContainer = "container:Surveys.xcodeproj">
          </BuildableReference>
@@ -63,7 +63,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EEAEB07B1860A26000B608B9"
-            BuildableName = "Surveys.app"
+            BuildableName = "Med List.app"
             BlueprintName = "Surveys"
             ReferencedContainer = "container:Surveys.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EEAEB07B1860A26000B608B9"
-            BuildableName = "Surveys.app"
+            BuildableName = "Med List.app"
             BlueprintName = "Surveys"
             ReferencedContainer = "container:Surveys.xcodeproj">
          </BuildableReference>
