@@ -23,6 +23,12 @@
 		//main.enableInAppScan = YES;
 	}
 	
+	// create a new NSURLCache
+	int cacheSizeMemory = 16 * 1024 * 1024;			// 16 MB
+	int cacheSizeDisk = 64 * 1024 * 1024;			// 64 MB
+	NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
+	[NSURLCache setSharedURLCache:sharedCache];
+	
     return YES;
 }
 
