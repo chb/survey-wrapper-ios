@@ -4,6 +4,7 @@
 !*.xcodeproj/project.pbxproj
 xcuserdata
 **.xccheckout
+**.xcscmblueprint
 
 # ignore ZBarSDK directory
 ZBarSDK
