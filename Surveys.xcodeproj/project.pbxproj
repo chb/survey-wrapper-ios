@@ -311,7 +311,7 @@
 				ORGANIZATIONNAME = "Boston Children's Hospital";
 				TargetAttributes = {
 					EEAEB07B1860A26000B608B9 = {
-						DevelopmentTeam = 9YBWZSFNY3;
+						DevelopmentTeam = Q3B26TNSSH;
 					};
 					EEAEB09C1860A26000B608B9 = {
 						TestTargetID = EEAEB07B1860A26000B608B9;
@@ -538,7 +538,7 @@
 					"$(PROJECT_DIR)/ZBar/iphone/include/ZBarSDK",
 				);
 				INFOPLIST_FILE = "Surveys/Surveys-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.surveys.ios-bch.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.surveys.ios-bch.i2me2-surveys";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -561,7 +561,7 @@
 					"$(PROJECT_DIR)/ZBar/iphone/include/ZBarSDK",
 				);
 				INFOPLIST_FILE = "Surveys/Surveys-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.surveys.ios-bch.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.surveys.ios-bch.i2me2-surveys";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
