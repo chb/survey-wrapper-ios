@@ -80,7 +80,9 @@
 				DLog(@"INVALID CODE \"%@\": %@", code, error.localizedDescription);
 			}
 			else {
-#warning You should define here which action a successful code scan executes
+				// call the `externalSuggest(code)` method
+				NSString *js = [NSString stringWithFormat:@"externalSuggest(\"%@\")", code];
+				[this.webView stringByEvaluatingJavaScriptFromString:js];
 				[this hideCameraScanner:nil];
 			}
 		};
